@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Patient Details</title>
+</head>
+<body>
+    <h1>Patient Details</h1>
+    <p><strong>Name:</strong> {{ name }}</p>
+    <p><strong>Date of Birth:</strong> {{ dob }}</p>
+    <p><strong>Blood Group:</strong> {{ blood_group }}</p>
+    <p><strong>Medical Conditions:</strong> {{ conditions }}</p>
+    <p><strong>Allergies:</strong> {{ allergies }}</p>
+
+    {% if image_path %}
+        <img src="{{ url_for('static', filename=image_path.split('static/')[-1]) }}" alt="Patient Image" style="max-width:300px;" />
+    {% else %}
+        <p>No image available.</p>
+    {% endif %}
+</body>
+</html>

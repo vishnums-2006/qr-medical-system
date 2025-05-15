@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scan Patient QR Code</title>
+</head>
+<body>
+    <h2>Scan Patient QR Code</h2>
+    <div id="reader" style="width:300px;"></div>
+
+    <!-- This script adds QR code scanning ability -->
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script>
+      function onScanSuccess(decodedText, decodedResult) {
+        // When QR code is scanned, redirect to patient page with qr_id in URL
+        window.location.href = "/patient?qr_id=" + encodeURIComponent(decodedText);
+      }
+
+      function onScanError(errorMessage) {
+        // If scanning fails, you can handle the error here
+        console.warn(`QR scan error: ${errorMessage}`);
+      }
+
+      let html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader", { fps: 10, qrbox: 250 });
+      html5QrcodeScanner.render(onScanSuccess, onScanError);
+    </script>
+</body>
+</html>
