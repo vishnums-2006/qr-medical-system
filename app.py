@@ -3,7 +3,7 @@ from flask import Flask, request, render_template
 import sqlite3
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(os.path.dirname(__file__), 'patient.db')
+DB_PATH = os.path.join(os.path.dirname(__file__), 'patients.db')
 
 
 app = Flask(__name__)
@@ -20,7 +20,7 @@ def patient_info():
 
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
-    cursor.execute("SELECT name, dob, blood_group, conditions, allergies, image_path FROM patient WHERE qr_id = ?", (qr_id,))
+    cursor.execute("SELECT name, dob, blood_group, conditions, allergies, image_path FROM patients WHERE qr_id = ?", (qr_id,))
     row = cursor.fetchone()
     conn.close()
 
