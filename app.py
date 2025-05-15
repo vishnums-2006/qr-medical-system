@@ -20,7 +20,7 @@ def patient_info():
 
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
-    cursor.execute("SELECT name, dob, blood_group, conditions, allergies, image_path FROM patients WHERE qr_id = ?", (qr_id,))
+    cursor.execute("SELECT name, dob, blood_group, conditions, allergies, image_path FROM patient WHERE qr_id = ?", (qr_id,))
     row = cursor.fetchone()
     conn.close()
 
