@@ -1,9 +1,12 @@
+import os
 from flask import Flask, request, render_template
 import sqlite3
-import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(os.path.dirname(__file__), 'patients.db')
+
 
 app = Flask(__name__)
-DB_PATH = "D:/IDT/database/patients.db"
 
 @app.route('/')
 def home():
