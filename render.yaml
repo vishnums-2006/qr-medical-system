@@ -2,8 +2,7 @@ services:
   - type: web
     name: qr-medical-system
     env: python
+    plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
-    envVars:
-      - key: FLASK_ENV
-        value: production
+    startCommand: ./start.sh
+    autoDeploy: true
