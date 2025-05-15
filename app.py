@@ -3,7 +3,7 @@ from flask import Flask, request, render_template
 import sqlite3
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(os.path.dirname(__file__), 'patients.db')
+DB_PATH = os.path.join(os.path.dirname(__file__), 'patient.db')
 
 
 app = Flask(__name__)
